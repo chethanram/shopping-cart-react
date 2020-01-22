@@ -15,7 +15,8 @@ class Shelf extends Component {
     fetchProducts: PropTypes.func.isRequired,
     products: PropTypes.array.isRequired,
     filters: PropTypes.number,
-    sort: PropTypes.string
+    sort: PropTypes.string,
+    search: PropTypes.string
   };
 
   state = {
@@ -27,23 +28,28 @@ class Shelf extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { filters: nextFilters, sort: nextSort } = nextProps;
+    const { filters: nextFilters, sort: nextSort , search: nextSearch} = nextProps;
     const { filters } = this.props;
     if (nextFilters.length !== filters.length) {
-      this.handleFetchProducts(nextFilters, undefined);
+      this.handleFetchProducts(nextFilters, undefined, undefined);
     }
 
     if (nextSort !== this.props.sort) {
-      this.handleFetchProducts(undefined, nextSort);
+      this.handleFetchProducts(undefined, nextSort, undefined);
+    }
+
+    if(nextSearch !== this.props.search){
+        this.handleFetchProducts(undefined,undefined, nextSearch);
     }
   }
 
   handleFetchProducts = (
     filters = this.props.filters,
-    sort = this.props.sort
+    sort = this.props.sort,
+    search = this.props.search
   ) => {
     this.setState({ isLoading: true });
-    this.props.fetchProducts(filters, sort, () => {
+    this.props.fetchProducts(filters, sort, search, () => {
       this.setState({ isLoading: false });
     });
   };
@@ -67,7 +73,8 @@ class Shelf extends Component {
 const mapStateToProps = state => ({
   products: state.shelf.products,
   filters: state.filters.items,
-  sort: state.sort.type
+  sort: state.sort.type,
+  search: state.search.type
 });
 
 export default connect(

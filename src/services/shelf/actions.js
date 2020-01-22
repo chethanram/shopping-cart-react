@@ -16,7 +16,7 @@ const compare = {
   }
 };
 
-export const fetchProducts = (filters, sortBy, callback) => dispatch => {
+export const fetchProducts = (filters, sortBy, search, callback) => dispatch => {
   return axios
     .get(productsAPI)
     .then(res => {
@@ -28,6 +28,10 @@ export const fetchProducts = (filters, sortBy, callback) => dispatch => {
 
       if (!!sortBy) {
         products = products.sort(compare[sortBy]);
+      }
+
+      if(!!search){
+        products = products.filter(p => Object.keys(p).some(key => p[key].toString().toLowerCase().includes(search.toLowerCase())));
       }
 
       if (!!callback) {

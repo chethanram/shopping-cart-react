@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Thumb from './../../Thumb';
-import { formatPrice } from '../../../services/util';
 
 class CartProduct extends Component {
   static propTypes = {
@@ -58,23 +57,24 @@ class CartProduct extends Component {
           onMouseOver={() => this.handleMouseOver()}
           onMouseOut={() => this.handleMouseOut()}
           onClick={() => removeProduct(product)}
-        />
+        > REMOVE </div>
         <Thumb
           classes="shelf-item__thumb"
           src={product.img_url}
-          alt={product.title}
+          alt={product.name}
         />
         <div className="shelf-item__details">
           <p className="title">{product.name}</p>
           <p className="desc">
-            {`${product.price} | ${product.discount}`} <br />
-            Quantity: {product.discount}
+            {product.price} <del>{product.price*(product.discount/100) + product.price} </del>
+            <span className='shelf-item__success'>{product.discount}% off </span>
           </p>
         </div>
         <div className="shelf-item__price">
-          <p>{`${product.currencyFormat}  ${formatPrice(product.price)}`}</p>
+          
           <div>
-            <button onClick={this.handleOnDecrease} disabled={product.quantity === 1 ? true : false} className="change-product-button">-</button>
+            <button onClick={this.handleOnDecrease}  className="change-product-button">-</button>
+            <label> {product.quantity} </label>
             <button onClick={this.handleOnIncrease} className="change-product-button">+</button>
           </div>
         </div>

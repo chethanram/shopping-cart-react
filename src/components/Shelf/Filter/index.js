@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { updateFilters } from '../../../services/filters/actions';
-import Checkbox from '../../Checkbox';
 
 import './style.scss';
 
@@ -36,7 +35,7 @@ class Filter extends Component {
             <span >100</span>
             <input  type="range" min="100" max="700" onChange={this.inputValue} step="100"/>
             <span>700</span>
-            <p><input type="submit" value="submit" onClick={this.toggleCheckbox} /></p>
+            <p><input type="submit" className='__applyBtn' value="submit" onClick={this.toggleCheckbox} /></p>
         </div>
       </div>
     );

@@ -130,7 +130,7 @@ class FloatCart extends Component {
             onClick={() => this.closeFloatCart()}
             className="float-cart__close-btn"
           >
-            X
+            Home
           </div>
         )}
 
@@ -163,7 +163,21 @@ class FloatCart extends Component {
           </div>
 
           <div className="float-cart__footer">
-            <div className="sub">SUBTOTAL</div>
+            <h3>PRICE DETAILS</h3>
+            {/* <div className="sub">Price (1 item)</div>
+             <div className="sub-price">
+              <p className="sub-price__val">
+                {products.price*(products.discount/100) + products.price}
+              </p>
+            </div>
+                <div className="sub">Discount</div>
+             <div className="sub-price">
+              <p className="sub-price__val">
+                 {products.discount}
+              </p>
+            </div> */}
+
+            <div className="sub">Total Payable</div>
             <div className="sub-price">
               <p className="sub-price__val">
                 {`${cartTotal.currencyFormat} ${formatPrice(
@@ -171,22 +185,9 @@ class FloatCart extends Component {
                   cartTotal.currencyId
                 )}`}
               </p>
-              <small className="sub-price__installment">
-                {!!cartTotal.installments && (
-                  <span>
-                    {`OR UP TO ${cartTotal.installments} x ${
-                      cartTotal.currencyFormat
-                    } ${formatPrice(
-                      cartTotal.totalPrice / cartTotal.installments,
-                      cartTotal.currencyId
-                    )}`}
-                  </span>
-                )}
-              </small>
+             
             </div>
-            <div onClick={() => this.proceedToCheckout()} className="buy-btn">
-              Checkout
-            </div>
+            
           </div>
         </div>
       </div>
