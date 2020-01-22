@@ -1,6 +1,6 @@
 {
-  "homepage": "http://chethanram.github.io/react-shopping-cart",
-  "name": "react-shopping-cart",
+  "homepage": "http://chethanram.github.io/shopping-cart-react",
+  "name": "shopping-cart-react",
   "version": "0.1.0",
   "dependencies": {
     "axios": "^0.18.0",
