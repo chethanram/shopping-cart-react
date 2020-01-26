@@ -4,11 +4,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { updateSearch } from '../../../services/search/actions';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+
 
 const Search = ({ updateSearch, search }) => (
   <div className="search">
-    Search
     <input type='text' onChange={e => updateSearch(e.target.value)}/>
+    <FontAwesomeIcon icon = {faSearch} style={{color:'#fff'}} />
   </div>
 );
 

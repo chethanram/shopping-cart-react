@@ -13,6 +13,10 @@ const compare = {
     if (a.price > b.price) return -1;
     if (a.price < b.price) return 1;
     return 0;
+  },
+  discount: (a,b) => {
+    if (a.discount <= b.discount) return 1;
+    return 0;
   }
 };
 

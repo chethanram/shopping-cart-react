@@ -15,7 +15,6 @@
     }
 
     .sort {
-      float: right;
 
       select {
         background-color: #fff;
@@ -43,7 +42,7 @@
   }
 
   .shelf-item {
-    width: 25%;
+    width: 20%;
     position: relative;
     text-align: center;
     box-sizing: border-box;
@@ -116,6 +115,9 @@
   }
 }
 
+.sortBytext {
+    font-weight: bold;
+}
 
 @media only screen and (max-width: 1024px) { 
 .onlySmallScreen{
@@ -126,10 +128,25 @@
   }
 }
 @media only screen and (min-width: 1024px) {
-  .onlyLargeScreen{
+  .onlyLargeScreen {
       display: block;
+      input:nth-child(2) {
+          display:none;
+      }
   }
-  .onlySmallScreen{
+  .onlySmallScreen {
     display: none;
+}
+.search {
+    position: absolute;
+    top: 15px;
+    z-index: 999;
+    right: 70px;
+
+    input {
+        border: 0;
+        border-bottom: 1px solid #ddd;
+        background: transparent;
+    }
 }
 }

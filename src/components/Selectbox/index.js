@@ -11,19 +11,19 @@ const Selectbox = ({ options, classes, handleOnChange }) => {
 
     const createText = options =>
     options.map(o => (
-      <input onClick={e => handleOnChange(e.target.value)} type='button' value={o.value} className='sortLink'/>
+      <input onClick={e => handleOnChange(e.target.name)} name={o.value} type='button' value={o.label} className='sortLink'/>
     ));
 
   return (
       <div>
       <div className='onlySmallScreen'>
-    Sort by
+    <span className='sortBytext'> Sort by </span>
     <select  onChange={e => handleOnChange(e.target.value)} className={classes}>
       {createOptions(options)}
     </select>
     </div>
     <div className='onlyLargeScreen'>
-        Sort by 
+    <span className='sortBytext'> Sort by </span>
         {createText(options)}
     </div>
     </div>

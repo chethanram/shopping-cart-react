@@ -7,6 +7,9 @@ import { updateCart } from '../../services/total/actions';
 import CartProduct from './CartProduct';
 import { formatPrice } from '../../services/util';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+
 import './style.scss';
 
 class FloatCart extends Component {
@@ -115,17 +118,19 @@ class FloatCart extends Component {
 
         {/* If cart is closed, show bag with quantity of product and open cart action */}
         {!this.state.isOpen && (
-          <span
+          <div
             onClick={() => this.openFloatCart()}
-            className="bag bag--float-cart-closed"
+             className="bag bag--float-cart-closed"
           >
+           <FontAwesomeIcon icon={faShoppingCart} />
             <span className="bag__quantity">{cartTotal.productQuantity}</span>
-          </span>
+          </div>
         )}
 
         <div className="float-cart__content">
           <div className="float-cart__header">
             <span className="bag">
+                <FontAwesomeIcon icon={faShoppingCart} />
               <span className="bag__quantity">{cartTotal.productQuantity}</span>
             </span>
             <span className="header-title">Cart</span>
