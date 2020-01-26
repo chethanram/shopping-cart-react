@@ -63,7 +63,6 @@ class FloatCart extends Component {
     }
 
     updateCart(cartProducts);
-    this.openFloatCart();
   };
 
   removeProduct = product => {
@@ -73,26 +72,6 @@ class FloatCart extends Component {
     if (index >= 0) {
       cartProducts.splice(index, 1);
       updateCart(cartProducts);
-    }
-  };
-
-  proceedToCheckout = () => {
-    const {
-      totalPrice,
-      productQuantity,
-      currencyFormat,
-      currencyId
-    } = this.props.cartTotal;
-
-    if (!productQuantity) {
-      alert('Add some product in the cart!');
-    } else {
-      alert(
-        `Checkout - Subtotal: ${currencyFormat} ${formatPrice(
-          totalPrice,
-          currencyId
-        )}`
-      );
     }
   };
 
@@ -124,7 +103,7 @@ class FloatCart extends Component {
 
     return (
       <div className={classes.join(' ')}>
-        {/* If cart open, show close (x) button */}
+        {/* If cart open, home button */}
         {this.state.isOpen && (
           <div
             onClick={() => this.closeFloatCart()}

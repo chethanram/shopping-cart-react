@@ -7,6 +7,7 @@ import FloatCart from '../FloatCart';
 const App = () => (
   <React.Fragment>
     <main>
+      <header />
       <Filter />
       <Shelf />
     </main>
