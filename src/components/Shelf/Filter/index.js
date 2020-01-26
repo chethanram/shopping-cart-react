@@ -33,9 +33,10 @@ class Filter extends Component {
         <h4 className="title">Filters: &lt; {this.state.inputValue}</h4>
          <div>
             <span >100</span>
-            <input  type="range" min="100" max="700" onChange={this.inputValue} step="100"/>
+            <input className='filterRange' type="range" min="100" max="700" onChange={this.inputValue} step="100"/>
             <span>700</span>
-            <p><input type="submit" className='__applyBtn' value="submit" onClick={this.toggleCheckbox} /></p>
+            <div className='filterPriceTag'> Price </div> 
+            <p className='applyBtnCont'><input type="submit" className='applyBtn' value="submit" onClick={this.toggleCheckbox} /></p>
         </div>
       </div>
     );

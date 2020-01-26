@@ -3,17 +3,28 @@
   margin-right: 15px;
   border-right: 1px solid #eee;
 
+    .filterRange {
+        width:70%;
+    }
+    .filterPriceTag {
+        text-align: center;
+    }
+
+    .applyBtnCont{
+        text-align: center;
+    }
     .applyBtn {
-    background: #00f;
-    border: 0;
-    padding: 11px 19px;
-    border-radius: 30px;
-    display: inline-block;
-    margin-top: 10px;
-    color: #fff;
-    cursor: pointer;
-    -webkit-transition: background-color 0.2s;
-    transition: background-color 0.2s;
+        background: #00f;
+        border: 0;
+        padding: 11px 19px;
+        border-radius: 30px;
+        display: inline-block;
+        margin-top: 10px;
+        color: #fff;
+        cursor: pointer;
+        -webkit-transition: background-color 0.2s;
+        transition: background-color 0.2s;
+        margin: 0 auto;
     }
 
   .star-button-container {
